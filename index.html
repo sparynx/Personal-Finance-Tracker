@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="libs/chart.min.js"></script>
+    <script src="libs/jspdf.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Personal Finance Tracker</h1>
+    </header>
+
+    <main>
+        <section id="income-expenses">
+            <h2>Income & Expenses</h2>
+            <form id="transaction-form">
+                <input type="text" id="description" placeholder="Transaction Description" required>
+                <input type="number" id="amount" placeholder="Amount" required>
+                <select id="type" required>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <select id="category" required>
+                    <option value="general">General</option>
+                    <option value="groceries">Groceries</option>
+                    <option value="rent">Rent</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="subscriptions">Subscriptions</option>
+                </select>
+                <button type="submit">Add Transaction</button>
+            </form>
+        </section>
+
+        <section id="budget">
+            <h2>Set Your Budget</h2>
+            <input type="number" id="budget-amount" placeholder="Set Budget Amount" required>
+            <button id="set-budget">Set Budget</button>
+            <div id="budget-status"></div>
+        </section>
+
+        <section id="overview">
+            <h2>Overview</h2>
+            <div id="balance">
+                <p>Total Income: $<span id="total-income">0</span></p>
+                <p>Total Expenses: $<span id="total-expenses">0</span></p>
+                <p>Balance: $<span id="balance-amount">0</span></p>
+            </div>
+            <canvas id="expenseChart"></canvas>
+        </section>
+
+        <section id="history">
+            <h2>Transaction History</h2>
+            <ul id="transaction-list"></ul>
+        </section>
+
+        <section id="export">
+            <button id="export-csv">Export to CSV</button>
+            <button id="export-pdf">Export to PDF</button>
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
